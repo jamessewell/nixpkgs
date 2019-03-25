@@ -25,6 +25,10 @@ stdenv.mkDerivation rec {
     export GOCACHE="$TMPDIR/go-cache"
   '';
 
+   buildPhase = ''
+      make static-dist dev-ui tests
+    '';
+
   installPhase = ''
     mkdir -p $out/bin $out/share/bash-completion/completions
 
