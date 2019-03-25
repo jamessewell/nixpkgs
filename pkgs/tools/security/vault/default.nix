@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, go, gox, removeReferencesTo }:
+{ stdenv, fetchFromGitHub, go, gox, yarn, removeReferencesTo }:
 
 stdenv.mkDerivation rec {
   name = "vault-${version}";
@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     sha256 = "1c5v1m8b6nm28mjwpsgc73n8q475pkzpdvyx46rf3xyrh01rfrnz";
   };
 
-  nativeBuildInputs = [ go gox removeReferencesTo ];
+  nativeBuildInputs = [ go gox yarn removeReferencesTo ];
 
   preBuild = ''
     patchShebangs ./
